@@ -56,9 +56,7 @@ const Home = ({ setActive, user, active }) => {
       collection(db, "blogs"),
       (snapshot) => {
         let list = [];
-        let tags = [];
         snapshot.docs.forEach((doc) => {
-          tags.push(...doc.get("tags"));
           list.push({ id: doc.id, ...doc.data() });
         });
         const uniqueTags = [...new Set(tags)];
